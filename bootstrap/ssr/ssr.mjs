@@ -100,12 +100,17 @@ default_1((page) => createInertiaApp({
   page,
   render: ReactDOMServer.renderToString,
   title: (title) => `${title} - ${appName}`,
-  resolve: (name) => resolvePageComponent(`./pages/${name}.tsx`, Object.assign({ "./pages/About.tsx": () => import("./assets/About.44f15e7c.mjs"), "./pages/Index.tsx": () => import("./assets/Index.d96804e9.mjs") })),
+  resolve: (name) => resolvePageComponent(`./pages/${name}.tsx`, Object.assign({ "./pages/About.tsx": () => import("./assets/About.77c73144.mjs"), "./pages/Index.tsx": () => import("./assets/Index.10e73133.mjs") })),
   setup: ({
     App,
     props
   }) => {
-    global.route = (...args) => route(...args);
+    global.route = (name, params, absolute) => {
+      route(name, params, absolute, {
+        ...page.props.ziggy,
+        location: new URL(page.props.ziggy.url)
+      });
+    };
     return /* @__PURE__ */ jsx(App, {
       ...props
     });

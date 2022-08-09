@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { L as Layout } from "./Layout.c72f4ea6.mjs";
+import { L as Layout } from "./Layout.7fd56b4d.mjs";
 import { a as jsxs } from "../ssr.mjs";
 import "@inertiajs/inertia-react";
 import "react-dom/server.js";
